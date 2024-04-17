@@ -1,14 +1,14 @@
 # Interface between models and the clients
 # Include intialization, training for one iteration and test function
 
-from cifar_cnn_3conv_layer import (
+from models.cifar_cnn_3conv_layer import (
     cifar_cnn_3conv,
     cifar_cnn_3conv_specific,
     cifar_cnn_3conv_shared,
 )
-from cifar_resnet import ResNet18, ResNet34, ResNet50, ResNet101, ResNet152
-from mnist_cnn import mnist_lenet
-from mnist_logistic import LogisticRegression
+from models.cifar_resnet import ResNet18, ResNet34, ResNet50, ResNet101, ResNet152
+from models.mnist_cnn import mnist_lenet
+from models.mnist_logistic import LogisticRegression
 import torch.optim as optim
 import torch.nn as nn
 
@@ -211,7 +211,7 @@ def main():
     testloader = torch.utils.data.DataLoader(
         testset, batch_size=100, shuffle=False, num_workers=2
     )
-    for epoch in tqdm(range(10)):  # loop over the dataset multiple times
+    for epoch in tqdm(range(350)):  # loop over the dataset multiple times
         model.step_lr_scheduler(epoch)
         running_loss = 0.0
         for i, data in enumerate(trainloader, 0):
