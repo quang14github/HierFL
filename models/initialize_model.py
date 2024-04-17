@@ -211,7 +211,7 @@ def main():
     testloader = torch.utils.data.DataLoader(
         testset, batch_size=100, shuffle=False, num_workers=2
     )
-    for epoch in tqdm(range(350)):  # loop over the dataset multiple times
+    for epoch in tqdm(range(10)):  # loop over the dataset multiple times
         model.step_lr_scheduler(epoch)
         running_loss = 0.0
         for i, data in enumerate(trainloader, 0):
